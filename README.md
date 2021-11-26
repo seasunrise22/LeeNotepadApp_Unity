@@ -1,3 +1,6 @@
 # LeeNotepadApp_Unity
 
-## DB연동 연습용 유니티로 메모 어플 개발
+## Develop notepadApp make by Unity for DB connect practice.
+
+Development Environment
+Apache(2.4.33), Php(7.4.16), MySQL(5.7.24) = MAMP
