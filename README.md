@@ -1,4 +1,4 @@
-# Develop notepadApp make by Unity for DB connect practice.
+# notepadAppAndroid make by Unity for DB connect practice.
 
 
 ### <b>Development Environment</b>
