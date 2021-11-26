@@ -1,6 +1,5 @@
 # LeeNotepadApp_Unity
-
-## Develop notepadApp make by Unity for DB connect practice.
+Develop notepadApp make by Unity for DB connect practice.
 
 Development Environment
 
