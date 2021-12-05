@@ -17,7 +17,8 @@ public class SendText : MonoBehaviour
     IEnumerator SendToDB()
     {
         WWWForm form = new WWWForm();
-        form.AddField("text", textField.text);
+        /*form.AddField("datetime", System.DateTime.Now.ToString("yyyy-mm-dd hh:mm:ss"));*/
+        form.AddField("text", textField.text);        
         UnityWebRequest www = UnityWebRequest.Post("http://localhost/LeeNotepadApp/SendText.php", form);
         yield return www.SendWebRequest();
         if(www.result == UnityWebRequest.Result.ConnectionError)

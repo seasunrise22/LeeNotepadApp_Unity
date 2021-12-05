@@ -54,6 +54,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\SendText.cs" />
+    <Compile Include="Assets\Scripts\FetchText.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
