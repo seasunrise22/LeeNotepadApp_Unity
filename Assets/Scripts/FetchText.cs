@@ -15,7 +15,9 @@ public class FetchText : MonoBehaviour
 
     IEnumerator FetchFromDB()
     {
-        UnityWebRequest www = UnityWebRequest.Get("http://localhost/LeeNotepadApp/FetchText.php");
+        WWWForm form = new WWWForm();
+        form.AddField("num", 1);
+        UnityWebRequest www = UnityWebRequest.Post("http://localhost/LeeNotepadApp/FetchText.php", form);
         yield return www.SendWebRequest();
         if (www.result == UnityWebRequest.Result.ConnectionError)
         {
