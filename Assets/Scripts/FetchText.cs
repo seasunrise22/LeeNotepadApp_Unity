@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class FetchText : MonoBehaviour
 {
-    public Text textField;
+    public Text textField;    
 
     private void Start()
     {
@@ -15,20 +15,26 @@ public class FetchText : MonoBehaviour
 
     IEnumerator FetchFromDB()
     {
-        WWWForm form = new WWWForm();
-        form.AddField("num", 1);
-        UnityWebRequest www = UnityWebRequest.Post("http://localhost/LeeNotepadApp/FetchText.php", form);
-        yield return www.SendWebRequest();
-        if (www.result == UnityWebRequest.Result.ConnectionError)
-        {
-            Debug.Log("ConnectionError");
-        }
-        else
-        {
-            Debug.Log("FetchText from Database successful");
-            string fetchText = www.downloadHandler.text;
-            Debug.Log(fetchText);
-            textField.text = fetchText;
-        }
+        string resultText = "";
+        int num = 1;
+        do
+        {            
+            WWWForm form = new WWWForm();
+            form.AddField("num", num);
+            UnityWebRequest www = UnityWebRequest.Post("http://localhost/LeeNotepadApp/FetchText.php", form);
+            yield return www.SendWebRequest();
+
+            if (www.result == UnityWebRequest.Result.ConnectionError)
+            {
+                Debug.Log("ConnectionError");
+            }
+            else
+            {
+                resultText = www.downloadHandler.text;
+                Debug.Log(resultText);
+                /*textField.text = fetchText;*/
+                num++;
+            }
+        } while (resultText != "0 results");
     }
 }
