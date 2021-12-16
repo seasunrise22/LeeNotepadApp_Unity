@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class FetchText : MonoBehaviour
 {
-    public Text textField;    
+    public GameObject memoPrefab;
 
     private void Start()
     {
@@ -18,7 +18,7 @@ public class FetchText : MonoBehaviour
         string resultText = "";
         int num = 1;
         do
-        {            
+        {
             WWWForm form = new WWWForm();
             form.AddField("num", num);
             UnityWebRequest www = UnityWebRequest.Post("http://localhost/LeeNotepadApp/FetchText.php", form);
@@ -31,8 +31,13 @@ public class FetchText : MonoBehaviour
             else
             {
                 resultText = www.downloadHandler.text;
-                Debug.Log(resultText);
-                /*textField.text = fetchText;*/
+                if (resultText == "0 results")
+                    break;
+                //Debug.Log(resultText);
+                GameObject go = Instantiate(memoPrefab, transform.position, transform.rotation);
+                go.transform.SetParent(GameObject.Find("Contents").transform, false);
+                go.GetComponentInChildren<Text>().text = resultText;
+                go.GetComponent<FetchedMemoScript>().MemoNum = num;
                 num++;
             }
         } while (resultText != "0 results");
