@@ -38,6 +38,7 @@ public class FetchText : MonoBehaviour
                 go.transform.SetParent(GameObject.Find("Contents").transform, false);
                 go.GetComponentInChildren<Text>().text = resultText;
                 go.GetComponent<FetchedMemoScript>().MemoNum = num;
+                go.GetComponent<FetchedMemoScript>().MemoContent = resultText;
                 num++;
             }
         } while (resultText != "0 results");
