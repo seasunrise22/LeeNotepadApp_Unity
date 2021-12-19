@@ -5,16 +5,16 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class FetchedMemoScript : MonoBehaviour
-{    
-    public int MemoNum { get; set; }
-    public string MemoContent { get; set; }
+{
+    public int memoNum;
+    public string memoContent;
 
     public void TaskOnClick()
     {
         //Debug.Log("Num is... " + this.MemoNum);
         GameObject pb = GameObject.Find("PostBox"); 
-        pb.GetComponent<PostBox>().GrabbedNum = MemoNum;
-        pb.GetComponent<PostBox>().GrabbedContent = MemoContent;
+        pb.GetComponent<PostBox>().grabbedNum = memoNum;
+        pb.GetComponent<PostBox>().grabbedContent = memoContent;
         SceneManager.LoadScene("WritingScene");
     }
 }

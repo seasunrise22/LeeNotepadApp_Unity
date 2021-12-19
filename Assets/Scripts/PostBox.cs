@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PostBox : MonoBehaviour
 {
-    public int GrabbedNum { get; set; }
-    public string GrabbedContent { get; set; }
+    public int grabbedNum;
+    public string grabbedContent;
 
     private void Awake()
     {

@@ -37,8 +37,8 @@ public class FetchText : MonoBehaviour
                 GameObject go = Instantiate(memoPrefab, transform.position, transform.rotation);
                 go.transform.SetParent(GameObject.Find("Contents").transform, false);
                 go.GetComponentInChildren<Text>().text = resultText;
-                go.GetComponent<FetchedMemoScript>().MemoNum = num;
-                go.GetComponent<FetchedMemoScript>().MemoContent = resultText;
+                go.GetComponent<FetchedMemoScript>().memoNum = num;
+                go.GetComponent<FetchedMemoScript>().memoContent = resultText;
                 num++;
             }
         } while (resultText != "0 results");
